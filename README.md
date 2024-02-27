@@ -8,4 +8,4 @@ this is a subhead
 ------------------
 * bullet 1
 * bullet 2
-* Bellet 3
+* Bullet 3
