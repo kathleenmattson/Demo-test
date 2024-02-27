@@ -1,1 +1,177 @@
-this is yext because not forking let not let me forking paste
+\documentclass[]{scrartcl}
+\usepackage[left=25mm,right=25mm,top=30mm,bottom=30mm,head=24pt]{geometry}
+%\usepackage{environ} % for conditional text
+%\usepackage{etoolbox} % for conditional text
+%\usepackage{xcolor}
+%\usepackage{grffile} % image support (like graphicx)
+\usepackage{float} % for positioning figures
+%\usepackage{longtable}
+\usepackage{supertabular}
+\usepackage{booktabs} % booktabs table sytles
+\usepackage{makecell} % additional table features + \Xhline
+\usepackage{ragged2e}
+%\usepackage{etoolbox}  % supports conditional tests
+
+\KOMAoption{parskip}{full} % change default spacing between paragraphs
+\hyphenpenalty=500
+\tolerance=2000
+\emergencystretch=10pt
+
+\KOMAoption{fontsize}{10pt}
+\usepackage{fontspec}
+\usepackage{lmodern}            % Latin Modern Font with lots of glyphs
+%\setmainfont{}   % any serif font on the system (times roman)
+%\setsansfont{}   % any sans-serif font on the system ()
+%\setmonofont{}   % any monospace font on the system ()
+\usepackage{microtype}
+\raggedright
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% Moved
+\usepackage{hyperref} % Clickable links with \ref{} and \href{}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdfpagemode=FullScreen,
+}
+
+\usepackage{grffile} % image support (like graphicx). Usage: \includegraphics{path/to/file}
+
+% Define \thickhline, a variant of \hline
+\newcommand{\thickhline}{\Xhline{0.3ex}} % requires package makecell
+
+\begin{document}
+	
+\section{Tables}
+
+Online \LaTeX table generator: \href{https://www.tablesgenerator.com/}{https://www.tablesgenerator.com/}.
+
+\subsection{Simple Table, Centered Table, Left-Justified Data}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{ll}
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Table centered, data left}\label{tab:center-left}
+\end{table}
+
+\subsection{Simple Table, Booktabs Style}
+
+%\usepackage{booktabs}  % goes in the main .tex file preamble, not here
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{@{}ll@{}}
+		\toprule
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Table centered, data left}\label{tab:booktabs}
+\end{table}
+
+\subsection{Simple Table, Centered Table, Centered Data}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{cc}
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Table centered, data centered}\label{tab:center-center}
+\end{table}
+
+\subsection{Simple Table, Float Left, Left Data}
+
+\begin{table}[h!]
+	\begin{tabular}{ll}
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Table left, data left}\label{tab:left-left}
+\end{table}
+
+\subsection{Wrap Text in Cells}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{lp{.8\textwidth}}
+		column 1 & column 2 \\
+		\hline
+		celery & Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Wrapped text}\label{tab:wrapped-text}
+\end{table}
+
+\subsection{Unnumbered Table Without Caption}
+
+\begin{center}
+\begin{tabular}{ll}
+	column 1 & column 2 \\
+	\hline
+	celery & apples \\
+	milk & peanut butter 
+\end{tabular}
+\end{center}
+
+\subsection{Extra Horizontal Padding}
+
+\begin{table}[h!]
+	\centering
+	\setlength{\tabcolsep}{3.5em}
+	\begin{tabular}{ll}
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Increase horizontal cell padding}\label{tab:horiz-padding}
+\end{table}
+
+\subsection{Extra Vertical Spacing}
+
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.5}
+	\centering
+	\begin{tabular}{ll}
+		column 1 & column 2 \\
+		\hline
+		celery & apples \\
+		milk & peanut butter 
+	\end{tabular}
+	\caption{Extra line spacing}\label{tab:line-spacing}
+\end{table}
+
+\subsection{Table with Cell Borders}
+
+\begin{table}[h!]
+	\renewcommand{\arraystretch}{1.2}
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline 
+		Column 1 & Column 2 \\
+		\hline
+		celery & apples \\
+		\hline
+		milk & peanut butter \\
+		\hline
+	\end{tabular}
+	\caption{Table with cell borders}\label{tab:all-borders}
+\end{table}
+
+\end{document}
